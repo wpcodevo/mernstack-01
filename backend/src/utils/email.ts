@@ -17,14 +17,15 @@ export default class Email {
   to: string;
   from: string;
   constructor(public user: User, public url: string) {
-    this.firstName = user.firstName;
+    this.firstName = user.name.split(' ')[0];
     this.to = user.email;
     this.from = `Codevo ${config.get<string>('emailFrom')}`;
   }
 
   private newTransport() {
-    if (process.env.NODE_ENV === 'production') {
-    }
+    // if (process.env.NODE_ENV === 'production') {
+    //   console.log('Hello')
+    // }
 
     return nodemailer.createTransport({
       ...smtp,
