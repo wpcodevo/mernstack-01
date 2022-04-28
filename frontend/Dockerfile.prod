@@ -1,4 +1,4 @@
-FROM node:17 as builder
+FROM node:17-alpine3.12 as builder
 
 WORKDIR /app
 COPY ["package.json", "yarn.lock" ,"./"]
@@ -6,4 +6,5 @@ RUN yarn install
 COPY . .
 RUN yarn build
 
+FROM nginx:1.10.0-alpine
 COPY --from=builder ./app/build /usr/share/nginx/html
