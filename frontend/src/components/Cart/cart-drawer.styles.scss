@@ -1,0 +1,5 @@
+.cart-drawer-bb {
+  &:not(:last-child) {
+    border-bottom: 1px solid #ebe9e9;
+  }
+}

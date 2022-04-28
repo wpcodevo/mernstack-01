@@ -1,0 +1,15 @@
+.order-cartItem-bb {
+  &:not(:last-child) {
+    border-bottom: 1px solid #ebe9e9;
+  }
+}
+
+.orderSummary-bb {
+  border-bottom: 1px solid #ebe9e9;
+}
+
+.paypal-buttons {
+  &:last-child {
+    display: none;
+  }
+}

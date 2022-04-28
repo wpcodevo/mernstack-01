@@ -1,0 +1,14 @@
+{
+  "triggerTaskOnSave.tasks": {
+    // "restart node-app": ["backend/config/**/*.ts", "backend/src/**/*.ts"],
+    // "restart react-app": ["frontend/src/**/*"]
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  }
+}

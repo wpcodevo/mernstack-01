@@ -1,0 +1,46 @@
+version: '3'
+services:
+  react-app:
+    container_name: react-app
+    depends_on:
+      - node-app
+    env_file:
+      - ./frontend/.env.local
+    environment:
+      - NODE_ENV=development
+  node-app:
+    container_name: node-app
+    depends_on:
+      - mongo
+      - redis
+    env_file:
+      - ./backend/.env
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - '6000:27017'
+    env_file:
+      - ./backend/.env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'edemziddah'
+      MONGO_INITDB_ROOT_PASSWORD: 'pass1234'
+    volumes:
+      - mongo-db:/data/db
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis:/data
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    depends_on:
+      - node-app
+      - react-app
+    restart: always
+volumes:
+  mongo-db:
+  redis:

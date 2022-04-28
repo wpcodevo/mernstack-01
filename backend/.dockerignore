@@ -1,0 +1,9 @@
+node_modules
+/node_modules
+.git
+.gitignore
+Dockerfile
+.dockerignore
+docker-compose*
+*.md
+dev-data

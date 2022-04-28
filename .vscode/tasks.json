@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "restart node-app",
+      "type": "shell",
+      "command": "make restart-node-app",
+      "presentation": {
+        "reveal": "never"
+      }
+    },
+    {
+      "label": "restart react-app",
+      "type": "shell",
+      "command": "make restart-react-app",
+      "presentation": {
+        "reveal": "never"
+      }
+    }
+  ]
+}
