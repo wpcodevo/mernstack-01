@@ -30,7 +30,7 @@ services:
       - web-root:/var/www/html
     depends_on:
       - nginx
-    command: certonly --webroot --webroot-path=/var/www/html --email contact@smartdollarz.com --agree-tos --no-eff-email --staging -d smartdollarz.com  -d smartdollarz.com
+    command: certonly --webroot --webroot-path=/var/www/html --email contact@smartdollarz.com --agree-tos --no-eff-email --staging -d smartdollarz.com   -d www.smartdollarz.com
     restart: unless-stopped
 
 volumes:
