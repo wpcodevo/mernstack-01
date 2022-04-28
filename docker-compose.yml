@@ -8,6 +8,8 @@ services:
       - ./frontend/.env.local
     environment:
       - NODE_ENV=development
+    restart: unless-stopped
+
   node-app:
     container_name: node-app
     depends_on:
@@ -15,6 +17,7 @@ services:
       - redis
     env_file:
       - ./backend/.env
+    restart: unless-stopped
   mongo:
     image: mongo
     container_name: mongo
@@ -27,6 +30,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: 'pass1234'
     volumes:
       - mongo-db:/data/db
+    restart: unless-stopped
+
   redis:
     image: redis
     container_name: redis
@@ -34,13 +39,15 @@ services:
       - '6379:6379'
     volumes:
       - redis:/data
+    restart: unless-stopped
+
   nginx:
     image: nginx:stable-alpine
     container_name: nginx
     depends_on:
       - node-app
       - react-app
-    restart: always
+    restart: unless-stopped
 volumes:
   mongo-db:
   redis:

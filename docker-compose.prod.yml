@@ -31,6 +31,8 @@ services:
     depends_on:
       - nginx
     command: certonly --webroot --webroot-path=/var/www/html --email contact@smartdollarz.com --agree-tos --no-eff-email --staging -d smartdollarz.com  -d smartdollarz.com
+    restart: unless-stopped
+
 volumes:
   web-root:
   certbot-etc:
