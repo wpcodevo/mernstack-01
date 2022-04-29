@@ -16,6 +16,8 @@ services:
       - mongo
       - redis
     env_file:
+    ports:
+      - '8000:8000'
       - ./backend/.env
     restart: unless-stopped
   mongo:
